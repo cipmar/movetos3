@@ -17,4 +17,4 @@ inotifywait -m $videoFolder -e close_write |
 	else
 		echo [$(data)] "copy to S3 failed: ${file}"
 	fi
-    done:
+    done
