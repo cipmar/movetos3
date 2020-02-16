@@ -11,7 +11,7 @@ inotifywait -m $videoFolder -e close_write |
 	aws s3 cp $videoFolder/${file} $s3Object
 
 	if [ $? = 0 ]; then
-		echo ($date -u) "file successfully copied to S3: ${file}"
+		echo [$(date)] "file successfully copied to S3: ${file}"
 		sudo rm -f $videoFolder/${file}
 		echo [$(data)] "file successfully deleted: ${file}"
 	else
