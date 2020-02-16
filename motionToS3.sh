@@ -13,8 +13,8 @@ inotifywait -m $videoFolder -e close_write |
 	if [ $? = 0 ]; then
 		echo ($date -u) "file successfully copied to S3: ${file}"
 		sudo rm -f $videoFolder/${file}
-		echo ($data -u) "file successfully deleted: ${file}"
+		echo [$(data)] "file successfully deleted: ${file}"
 	else
-		echo ($data -u) "copy to S3 failed: ${file}"
+		echo [$(data)] "copy to S3 failed: ${file}"
 	fi
-    done
+    done:
