@@ -9,6 +9,12 @@ inotifywait -m $videoFolder -e close_write |
 	s3File=${file:11:12}
 	s3Object=s3://rpicamera1/$year/$month/$day/$s3File
 	aws s3 cp $videoFolder/${file} $s3Object
-	sudo rm -f $videoFolder/${file}
-    done
 
+	if [ $? = 0 ]; then
+		echo ($date -u) "file successfully copied to S3: ${file}"
+		sudo rm -f $videoFolder/${file}
+		echo ($data -u) "file successfully deleted: ${file}"
+	else
+		echo ($data -u) "copy to S3 failed: ${file}"
+	fi
+    done
